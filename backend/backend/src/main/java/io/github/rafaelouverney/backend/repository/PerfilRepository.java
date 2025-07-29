@@ -1,0 +1,7 @@
+package io.github.rafaelouverney.backend.repository;
+
+import io.github.rafaelouverney.backend.model.Perfil;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PerfilRepository extends JpaRepository<Perfil,Long> {
+}

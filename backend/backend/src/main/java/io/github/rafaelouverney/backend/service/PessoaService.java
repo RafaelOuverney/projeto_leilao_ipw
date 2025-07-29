@@ -4,12 +4,15 @@ import io.github.rafaelouverney.backend.model.Pessoa;
 import io.github.rafaelouverney.backend.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContext;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
 
-import java.rmi.NoSuchObjectException;
-import java.util.List;
+
 import java.util.NoSuchElementException;
 
 @Service
@@ -19,8 +22,14 @@ public class PessoaService {
 
     private MessageSource messageSource;
 
+    @Autowired
+    private EmailService emailService;
+
     public Pessoa inserir(Pessoa pessoa){
-        return pessoaRepository.save(pessoa);
+        Pessoa pessoaCadastrada = pessoaRepository.save(pessoa);
+        enviarEmailSucesso(pessoaCadastrada);
+        //emailService.enviarEmailSimples(pessoaCadastrada.getEmail(), "Cadastro Realizado com sucesso",  "Cadastro no sistema de leilão");
+        return pessoaCadastrada;
     }
 
     public Pessoa atualizar(Pessoa pessoa){
@@ -42,7 +51,17 @@ public class PessoaService {
                 LocaleContextHolder.getLocale())));
     }
 
-    public List<Pessoa> buscarTodos(){
-        return pessoaRepository.findAll();
+    public Page<Pessoa> buscarTodos(Pageable pageable) {
+        return pessoaRepository.findAll(pageable);
+    }
+
+    private void enviarEmailSucesso(Pessoa pessoa){
+        Context context = new Context();
+        context.setVariable("nome", pessoa.getNome());
+        emailService.emailTemplate(pessoa.getEmail(), "Cadastro Sucesso", context, "cadastroSucesso");
+    }
+
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return pessoaRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Pessoa não encontrada"));
     }
 }

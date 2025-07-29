@@ -5,10 +5,10 @@ import io.github.rafaelouverney.backend.service.PessoaService;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/pessoa")
@@ -16,8 +16,8 @@ public class PessoaController {
     @Autowired
     private PessoaService pessoaService;
     @GetMapping
-    public ResponseEntity<List<Pessoa>> buscarTodos(){
-            return  ResponseEntity.ok(pessoaService.buscarTodos());
+    public ResponseEntity<Page<Pessoa>> buscarTodos(Pageable pageable){
+            return  ResponseEntity.ok(pessoaService.buscarTodos(pageable));
     }
 
     @PostMapping
