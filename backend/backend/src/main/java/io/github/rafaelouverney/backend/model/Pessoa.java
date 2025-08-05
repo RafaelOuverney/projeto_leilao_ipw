@@ -13,6 +13,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,8 +45,9 @@ public class Pessoa  implements UserDetails {
     @Email(message = "{validation.email.valid}")
     private String email;
     private String senha;
-    @CPF
-    private String cpf;
+    private String codigoValidacao;
+    private Date validadeCodigoValidacao;
+    private Boolean ativo;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @Setter(AccessLevel.NONE)
