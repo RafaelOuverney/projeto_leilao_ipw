@@ -1,0 +1,11 @@
+.leilao-container { max-width: 980px; margin: 1.2rem auto; padding: 0 1rem; }
+.leilao-card { padding: 1rem; border-radius: 12px; }
+.leilao-header .muted { color: #6b7280; margin-top: 0.25rem }
+.leilao-grid { display: grid; grid-template-columns: 1fr 360px; gap: 1rem; margin-top: 1rem }
+.leilao-grid .col { display:flex; flex-direction: column; gap: 0.6rem }
+.label { font-weight: 600; margin-bottom: 0.25rem }
+.actions-row { display:flex; gap: 0.6rem; margin-top: 1rem }
+
+@media (max-width: 900px){
+  .leilao-grid { grid-template-columns: 1fr; }
+}

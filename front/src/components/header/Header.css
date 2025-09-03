@@ -1,0 +1,111 @@
+.app-header {
+  width: 100%;
+  background: linear-gradient(90deg, #2b6cb0, #2c5282);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+.nav .nav-link {
+  cursor: pointer;
+}
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+
+.nav a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background: linear-gradient(135deg,#ffffff22,#00000011);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  cursor:pointer;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+.avatar-initials{ font-weight:700; color:#fff; }
+.avatar img{ width:100%; height:100%; object-fit:cover }
+
+.btn-login {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-logout {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user {
+  font-weight: 500;
+  color: rgba(255,255,255,0.95);
+}
+
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .title { display: none; }
+}
+.header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #585555;
+    height: 100px;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;    
+    padding: 20px;
+    color: #fff;
+}

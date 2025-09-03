@@ -1,0 +1,5 @@
+.usuario-editar{ padding:1rem; display:flex; justify-content:center }
+.usuario-editar .card{ width:480px; padding:1rem; box-shadow:0 8px 24px rgba(2,6,23,0.06); border-radius:8px }
+.usuario-editar .field{ margin-bottom:0.75rem }
+.usuario-editar .avatar-preview{ width:96px; height:96px; object-fit:cover; border-radius:8px; margin-top:0.5rem }
+.usuario-editar .actions{ margin-top:1rem; text-align:right }

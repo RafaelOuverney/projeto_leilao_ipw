@@ -1,0 +1,14 @@
+.perfil-page{ padding:1rem; }
+
+.profile-card{ padding:1rem; border-radius:10px; box-shadow: 0 6px 20px rgba(2,6,23,0.06); }
+.profile-top{ display:flex; gap:1rem; align-items:center }
+.profile-info h2{ margin:0; font-size:1.1rem }
+.profile-info .muted{ color: #6b7280 }
+.profile-actions{ margin-top:0.5rem }
+
+.table-card{ padding:1rem; border-radius:10px; box-shadow: 0 6px 18px rgba(2,6,23,0.04); }
+.table-header{ display:flex; justify-content:space-between; align-items:center }
+
+@media (max-width: 720px){
+  .profile-top{ flex-direction:row }
+}
