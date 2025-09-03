@@ -44,7 +44,6 @@ const Perfil = () => {
         if (!isAdmin()) return;
         try {
             const res = await usuarioService.buscarTodos({ page: 0, size: 50 });
-            // backend returns Page => res.data.content
             setUsuarios(res.data.content || []);
         } catch (err) {
             console.error('erro ao carregar usuarios', err);

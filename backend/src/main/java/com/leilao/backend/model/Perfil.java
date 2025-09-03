@@ -22,3 +22,4 @@ public class Perfil {
     @NotBlank(message = "{validation.name.notblank}")
     private String nome;
 }
+

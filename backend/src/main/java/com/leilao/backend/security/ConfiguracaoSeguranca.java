@@ -23,7 +23,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableMethodSecurity(prePostEnabled = true)
 public class ConfiguracaoSeguranca {
 
-  
     private final JwtFiltroAutenticacao jwtRequestFilter;
 
     public ConfiguracaoSeguranca(JwtFiltroAutenticacao jwtRequestFilter) {
@@ -45,13 +44,7 @@ public class ConfiguracaoSeguranca {
         http.csrf(csrf -> csrf.disable())
              .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/autenticacao/**").permitAll()
-            .requestMatchers("/perfil/**").permitAll()
-            .requestMatchers("/pessoa/**").permitAll()
-            .requestMatchers("/categoria/**").permitAll()
-            .requestMatchers("/leilao/**").permitAll()
-            .requestMatchers("/item/**").permitAll()
-            /* .requestMatchers("/api/pessoa/**").hasRole("ADMIN") */
+            .requestMatchers("/autenticacao
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session

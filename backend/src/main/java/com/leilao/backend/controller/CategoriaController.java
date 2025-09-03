@@ -62,7 +62,7 @@ public class CategoriaController {
         }
 
         try {
-            // ensure a create operation
+
             categoria.setId(null);
             logger.info("POST /categoria payload nome={}", categoria.getNome());
             Categoria c = repository.save(categoria);
@@ -105,3 +105,4 @@ public class CategoriaController {
         return ResponseEntity.noContent().build();
     }
 }
+

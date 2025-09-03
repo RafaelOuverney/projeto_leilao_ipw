@@ -55,7 +55,7 @@ public class JwtFiltroAutenticacao extends OncePerRequestFilter {
                 }
             }
         } catch (Exception ex) {
-            // don't prevent request processing for invalid/expired tokens; log and continue
+
             logger.debug("JWT processing failed: {}", ex.getMessage());
         }
 

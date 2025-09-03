@@ -82,7 +82,6 @@ public class LeilaoController {
         return ResponseEntity.noContent().build();
     }
 
-    // DTO for request
     public static class LeilaoRequest {
         private String titulo;
         private String descricao;
@@ -92,7 +91,6 @@ public class LeilaoController {
         private Long categoriaId;
         private List<Item> itens;
 
-        // Getters and Setters
         public String getTitulo() { return titulo; }
         public void setTitulo(String titulo) { this.titulo = titulo; }
 
