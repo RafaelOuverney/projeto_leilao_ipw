@@ -9,3 +9,4 @@ public class PessoaAutenticacaoDTO {
     private String email;
     private String token;
 }
+

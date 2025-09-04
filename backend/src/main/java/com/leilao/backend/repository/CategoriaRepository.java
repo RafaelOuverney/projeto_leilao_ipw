@@ -9,3 +9,4 @@ import com.leilao.backend.model.Categoria;
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 }
+

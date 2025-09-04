@@ -30,11 +30,10 @@ const UsuarioEditar = () => {
             }
         } catch (e) {}
 
-        // load perfis
+
         perfilService.api.get(perfilService.endPoint)
             .then(res => {
                 const data = res.data;
-                // backend may return a Page object { content: [...], totalElements... }
                 if (Array.isArray(data)) setPerfis(data);
                 else if (data && Array.isArray(data.content)) setPerfis(data.content);
                 else setPerfis([]);
@@ -50,18 +49,16 @@ const UsuarioEditar = () => {
                 setSaving(false);
                 return;
             }
-            // attach selected perfil
+
             const payload = { ...usuario };
             if (selectedPerfil) {
                 payload.pessoaPerfil = [{ perfil: { id: selectedPerfil } }];
             }
             const res = await service.atualizar(payload);
-            // update localStorage
             const existing = JSON.parse(localStorage.getItem('usuario')) || {};
             const merged = { ...existing, ...res.data };
             localStorage.setItem('usuario', JSON.stringify(merged));
             toast.current.show({ severity: 'success', summary: 'Salvo', detail: 'Usuário atualizado' });
-            // go back to previous screen
             navigate(-1);
         } catch (err) {
             toast.current.show({ severity: 'error', summary: 'Erro', detail: 'Falha ao salvar usuário' });

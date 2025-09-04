@@ -36,7 +36,7 @@ public class AutenticacaoService {
            autenticacaoDTO.setNome(pessoaBanco.getNome());
            autenticacaoDTO.setToken(jwtService.generateToken(authentication.getName()));
 
-
         return autenticacaoDTO;
     }
 }
+
