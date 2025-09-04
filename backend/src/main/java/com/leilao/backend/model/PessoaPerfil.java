@@ -29,3 +29,4 @@ public class PessoaPerfil {
     @JsonIgnore
     private Pessoa pessoa;
 }
+

@@ -30,7 +30,7 @@ const UsuarioEditar = () => {
             }
         } catch (e) {}
 
-        // load perfis
+
         perfilService.api.get(perfilService.endPoint)
             .then(res => {
                 const data = res.data;

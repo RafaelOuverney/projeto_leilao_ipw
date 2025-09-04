@@ -44,7 +44,6 @@ public class ExcecaoGlobal {
         return new ResponseEntity<>(respostaErro, HttpStatus.BAD_REQUEST);
     }
 
-    // método global
     @ExceptionHandler(Exception.class)
     public ResponseEntity<RespostaErro> global(Exception ex, WebRequest request) {
         RespostaErro respostaErro = new RespostaErro(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Erro Interno",
@@ -53,3 +52,4 @@ public class ExcecaoGlobal {
         return new ResponseEntity<>(respostaErro, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+

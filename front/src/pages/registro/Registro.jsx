@@ -43,7 +43,7 @@ const Registro = () => {
             numero: /[0-9]/.test(senha),
             especial: /[^A-Za-z0-9]/.test(senha)
         });
-    }, [valores.senha]);
+    }, [valores.senha]); // Roda sempre que o campo 'senha' mudar
 
     const handleSubmit = (event) => {
         event.preventDefault();

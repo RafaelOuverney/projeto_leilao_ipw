@@ -7,3 +7,4 @@ public class NaoEncontradoExcecao extends RuntimeException {
     }
 
 }
+

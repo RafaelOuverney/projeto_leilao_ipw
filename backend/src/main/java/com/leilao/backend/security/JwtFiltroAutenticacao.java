@@ -52,6 +52,7 @@ public class JwtFiltroAutenticacao extends OncePerRequestFilter {
                 }
             }
         } catch (Exception ex) {
+
             logger.debug("JWT processing failed: {}", ex.getMessage());
         }
 
