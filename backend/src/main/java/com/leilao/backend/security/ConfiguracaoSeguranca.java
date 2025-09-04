@@ -23,7 +23,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableMethodSecurity(prePostEnabled = true)
 public class ConfiguracaoSeguranca {
 
-  
     private final JwtFiltroAutenticacao jwtRequestFilter;
 
     public ConfiguracaoSeguranca(JwtFiltroAutenticacao jwtRequestFilter) {
@@ -44,7 +43,6 @@ public class ConfiguracaoSeguranca {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-<<<<<<< HEAD
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/autenticacao/**").permitAll()
@@ -57,23 +55,6 @@ public class ConfiguracaoSeguranca {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-=======
-             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/autenticacao/**").permitAll()
-            .requestMatchers("/perfil/**").permitAll()
-            .requestMatchers("/pessoa/**").permitAll()
-            .requestMatchers("/categoria/**").permitAll()
-            .requestMatchers("/leilao/**").permitAll()
-            .requestMatchers("/item/**").permitAll()
-            /* .requestMatchers("/api/pessoa/**").hasRole("ADMIN") */
-                .anyRequest().authenticated()
-            )
-            .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
->>>>>>> parent of 1342507 (Comentários)
 
         return http.build();
     }

@@ -49,12 +49,12 @@ function App() {
           <Route path='/cadastro' element={<PadraoLayout>
             <Cadastro />
           </PadraoLayout>} />
-          <Route path='/login' element={<PadraoLayout>
+          <Route path='/login' element={
             <Login />
-          </PadraoLayout>} />
-          <Route path={'/registro'} element={<PadraoLayout>
+          } />
+          <Route path={'/registro'} element={
             <Registro />
-          </PadraoLayout>} />
+          } />
         </Routes>
       </BrowserRouter>
     </div>

@@ -40,11 +40,6 @@ public class Leilao {
     @JsonIgnore
     private List<Item> itens;
 
-    // Optional: add pessoa for creator
-    // @ManyToOne
-    // @JoinColumn(name = "pessoa_id")
-    // private Pessoa pessoa;
-
     private LocalDateTime createdAt;
 
     public Leilao() {
