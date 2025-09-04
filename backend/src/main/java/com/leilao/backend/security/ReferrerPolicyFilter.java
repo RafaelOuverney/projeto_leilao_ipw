@@ -25,4 +25,3 @@ public class ReferrerPolicyFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
-

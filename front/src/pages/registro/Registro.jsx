@@ -18,6 +18,7 @@ const Registro = () => {
     const [senhasConferem, setSenhasConferem] = useState(true);
     const toast = useRef(null);
 
+    // 1. Novo estado para controlar a validação de cada critério da senha
     const [criteriosSenha, setCriteriosSenha] = useState({
         tamanho: false,
         maiuscula: false,
@@ -26,6 +27,7 @@ const Registro = () => {
         especial: false
     });
 
+    // useEffect para validar a confirmação de senha
     useEffect(() => {
         if (valores.confirmarSenha) {
             setSenhasConferem(valores.senha === valores.confirmarSenha);
@@ -34,6 +36,7 @@ const Registro = () => {
         }
     }, [valores.senha, valores.confirmarSenha]);
 
+    // 2. Novo useEffect para validar a força da senha em tempo real
     useEffect(() => {
         const senha = valores.senha;
         setCriteriosSenha({
@@ -41,13 +44,14 @@ const Registro = () => {
             maiuscula: /[A-Z]/.test(senha),
             minuscula: /[a-z]/.test(senha),
             numero: /[0-9]/.test(senha),
-            especial: /[^A-Za-z0-9]/.test(senha) 
+            especial: /[^A-Za-z0-9]/.test(senha) // Verifica se existe um caractere que não seja letra ou número
         });
-    }, [valores.senha]);
+    }, [valores.senha]); // Roda sempre que o campo 'senha' mudar
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        // Verifica se as senhas são iguais
         if (!senhasConferem) {
             toast.current.show({
                 severity: 'error',
@@ -57,6 +61,7 @@ const Registro = () => {
             return;
         }
 
+        // 3. Verifica se todos os critérios da senha foram atendidos
         const todosCriteriosValidos = Object.values(criteriosSenha).every(criterio => criterio === true);
 
         if (!todosCriteriosValidos) {
@@ -70,7 +75,7 @@ const Registro = () => {
 
         console.log('Form Data:', valores);
         toast.current.show({ severity: 'success', summary: 'Sucesso', detail: 'Registro enviado com sucesso!' });
-
+        // Lógica para registrar o usuário...
     };
 
     const handleChange = (e) => {
@@ -80,6 +85,7 @@ const Registro = () => {
         });
     };
 
+    // Função auxiliar para renderizar a lista de critérios
     const renderCriterio = (texto, valido) => {
         const cor = valores.senha.length > 0 ? (valido ? 'green' : 'red') : 'inherit';
         const icone = valores.senha.length > 0 ? (valido ? 'pi pi-check' : 'pi pi-times') : '';
@@ -97,7 +103,7 @@ const Registro = () => {
             <Toast ref={toast} />
             <h2>Registro</h2>
             <form onSubmit={handleSubmit}>
-
+                {/* ... (código do botão voltar, nome e email) ... */}
                 <button name={"voltar"} style={{ position: 'absolute', color: 'white', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', top: '15px', left: '15px' }} onClick={(e) => { e.preventDefault(); window.history.back(); }}><ChevronLeft style={{ color: 'black' }} /></button>
                 <div style={{ height: '20px' }}></div>
                 <label htmlFor="nome">Nome:</label>
@@ -116,6 +122,7 @@ const Registro = () => {
                     id="senha"
                     toggleMask
                     required
+                    // 4. Footer dinâmico que mostra o status de cada critério
                     footer={(
                         <>
                             <Divider />

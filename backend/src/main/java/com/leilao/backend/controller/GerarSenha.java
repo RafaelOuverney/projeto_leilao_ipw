@@ -8,4 +8,3 @@ public class GerarSenha {
         System.out.println(enconde.encode("123"));
     }
 }
-

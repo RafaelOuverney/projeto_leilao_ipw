@@ -68,12 +68,14 @@ public class ItemController {
         return ResponseEntity.noContent().build();
     }
 
+    // DTO for request
     public static class ItemRequest {
         private String nome;
         private String descricao;
         private double precoInicial;
         private Leilao leilao;
 
+        // Getters and Setters
         public String getNome() { return nome; }
         public void setNome(String nome) { this.nome = nome; }
 

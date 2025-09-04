@@ -27,6 +27,7 @@ const CategoriaList = () => {
         setError(null);
         try {
             const res = await service.listar({ page, size });
+            // support Spring Page or simple array
             const data = res.data.content || res.data || [];
             setCategorias(data);
         } catch (err) {

@@ -8,4 +8,3 @@ public class Calculadora {
     private Integer valor2;
     private Integer resultado;
 }
-

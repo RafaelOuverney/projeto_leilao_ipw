@@ -7,4 +7,3 @@ public class PessoaRequisicaoDTO {
     private String email;
     private String senha;
 }
-

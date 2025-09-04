@@ -43,4 +43,3 @@ public class LeilaoService {
         return leilaoRepository.findAll(pageable);
     }
 }
-

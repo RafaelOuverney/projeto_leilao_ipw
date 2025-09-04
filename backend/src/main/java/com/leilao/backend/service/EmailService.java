@@ -49,4 +49,3 @@ public class EmailService {
         javaMail.send(message);
     }
 }
-

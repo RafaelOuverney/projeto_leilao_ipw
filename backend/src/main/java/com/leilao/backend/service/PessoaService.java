@@ -1,5 +1,7 @@
 package com.leilao.backend.service;
 
+// ...existing imports...
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -33,7 +35,8 @@ public class PessoaService implements UserDetailsService {
 
     public Pessoa inserir(Pessoa pessoa) {
         Pessoa pessoaCadastrada = pessoaRepository.save(pessoa);
-
+        // emailService.enviarEmailSimples(pessoaCadastrada.getEmail(), "Cadastrado com
+        // Sucesso", "Cadastro no Sistema de Leilão XXX foi feito com sucesso!");
         enviarEmailSucesso(pessoaCadastrada);
         return pessoaCadastrada;
     }
@@ -45,11 +48,11 @@ public class PessoaService implements UserDetailsService {
     }
 
     public Pessoa alterar(Pessoa pessoa) {
-
+        // return pessoaRepository.save(pessoa);
         Pessoa pessoaBanco = buscarPorId(pessoa.getId());
         pessoaBanco.setNome(pessoa.getNome());
         pessoaBanco.setEmail(pessoa.getEmail());
-
+        // update pessoaPerfil if provided (mutate existing collection to avoid orphanRemoval errors)
         if (pessoa.getPessoaPerfil() != null) {
             java.util.List<PessoaPerfil> existing = pessoaBanco.getPessoaPerfil();
             java.util.List<PessoaPerfil> toAdd = new java.util.ArrayList<>();
@@ -64,7 +67,7 @@ public class PessoaService implements UserDetailsService {
                 }
             }
             if (existing == null) {
-
+                // safe to set when there was no previous collection
                 pessoaBanco.setPessoaPerfil(toAdd);
             } else {
                 existing.clear();
@@ -97,4 +100,3 @@ public class PessoaService implements UserDetailsService {
     }
 
 }
-

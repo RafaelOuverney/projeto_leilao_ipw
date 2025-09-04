@@ -18,4 +18,3 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     public Optional<Pessoa> findByEmail(String email);
 }
-

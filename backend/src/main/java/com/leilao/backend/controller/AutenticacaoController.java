@@ -23,4 +23,3 @@ public class AutenticacaoController {
         return  ResponseEntity.ok(autenticacaoService.autenticar(pessoa));
     }
 }
-

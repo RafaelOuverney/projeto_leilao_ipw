@@ -70,7 +70,9 @@ const Home = () => {
             await leilaoService.criar(payload);
             toast.current.show({ severity: 'success', summary: 'Sucesso', detail: 'Leilão criado' });
             setQuickVisible(false);
+            // reset
             setTitulo(''); setDescricao(''); setValorInicial(''); setDataInicio(null); setDataFim(null); setCategoriaId('');
+            // reload leiloes
             carregarLeiloes();
         } catch (err) {
             console.error(err);

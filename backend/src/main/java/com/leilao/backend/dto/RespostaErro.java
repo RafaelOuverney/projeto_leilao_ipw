@@ -23,4 +23,3 @@ public class RespostaErro {
         this.detalhes = detalhes;
     }
 }
-

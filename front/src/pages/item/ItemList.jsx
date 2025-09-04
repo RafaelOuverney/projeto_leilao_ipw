@@ -40,6 +40,8 @@ const ItemList = () => {
             const res = await leilaoService.listar({ page:0, size:50 });
             const content = res.data.content || [];
             setLeiloes(content);
+            
+            // Check if there's a leilao in the URL
             const leilaoId = searchParams.get('leilao');
             if (leilaoId) {
                 const leilao = content.find(l => l.id == leilaoId);

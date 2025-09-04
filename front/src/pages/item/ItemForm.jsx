@@ -12,7 +12,8 @@ const ItemForm = ({ leilaoId, onCriado, onCancel }) => {
     const service = new ItemService();
 
     const salvar = async () => {
-
+        
+        // Validação dos campos
         if (!item.nome.trim()) {
             toast.current.show({ severity: 'warn', summary: 'Atenção', detail: 'Nome é obrigatório' });
             return;
